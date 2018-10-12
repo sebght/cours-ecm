@@ -39,6 +39,16 @@ public class IndexController {
         return recipeService.findAllTags();
     }
 
+    @RequestMapping("/404")
+    public String quatre_cent_quatre() {
+        return "404";
+    }
+
+    @RequestMapping("/500")
+    public String cinq_cent() {
+        return "500";
+    }
+
     @RequestMapping("/recettes")
     public String recettes(@ModelAttribute("searchForm") SearchForm searchForm, ModelMap model) {
         PageQuery pageQuery = new PageQuery();
