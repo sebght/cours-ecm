@@ -18,6 +18,7 @@ $(function(){
         $('#ingredients').append($('<div>').load('/admin/recettes/ingredientFormRow?ingredientIndex=' + index));
     });
 
+
     $(document).on('click', 'button[data-role="removeIngredient"]', function() {
         $(this).parents('.row')[0].remove();
     });
