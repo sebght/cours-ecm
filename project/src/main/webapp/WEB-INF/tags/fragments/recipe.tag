@@ -4,6 +4,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib prefix="t" uri="/WEB-INF/tld/text.tld" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <%@ attribute name="recipe" required="true" rtexprvalue="true" type="fr.cmm.domain.Recipe"%>
 
@@ -30,4 +31,9 @@
         </c:if>
         <p>${t:text(recipe.text)}</p>
     </div>
+    <sec:authorize access="hasRole('ADMIN')">
+    <div class="col-xs-12 col-sm-2">
+        <li><a href="/admin/recettes/edit?id=${recipe.id}">Editer</a></li>
+    </div>
+    </sec:authorize>
 </div>
