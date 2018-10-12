@@ -7,6 +7,7 @@ import fr.cmm.helper.PageQuery;
 import fr.cmm.helper.Pagination;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -35,7 +36,7 @@ public class IndexController {
     }
 
     @RequestMapping("/recettes")
-    public String recettes(SearchForm searchForm, ModelMap model) {
+    public String recettes(@ModelAttribute("searchForm") SearchForm searchForm, ModelMap model) {
         PageQuery pageQuery = new PageQuery();
         pageQuery.setIndex(searchForm.getPageIndex() - 1);
         pageQuery.setTag(searchForm.getTag());
@@ -47,6 +48,7 @@ public class IndexController {
 
         model.put("recipes", recipeService.findByQuery(pageQuery));
         model.put("pagination", pagination);
+        model.put("searchForm", searchForm); //cette ligne n'est pas utile si on met @ModelAttribute
 
         return "recettes";
     }
