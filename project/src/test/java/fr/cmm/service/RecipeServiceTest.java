@@ -108,4 +108,13 @@ public class RecipeServiceTest {
     public void findByIdWithInvalidId(){
         Assert.assertEquals(null, recipeService.findById("bonjour"));
     }
+
+    @Test
+    public void countByQuery(){
+        PageQuery query=new PageQuery();
+        recipeService.save(new Recipe().withTags("tag1", "tag2"));
+        recipeService.save(new Recipe().withTags("tag2", "tag3"));
+        query.setTag("tag2");
+        Assert.assertEquals(2, recipeService.countByQuery(query));
+    }
 }
