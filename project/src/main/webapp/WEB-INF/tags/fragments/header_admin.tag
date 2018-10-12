@@ -1,4 +1,6 @@
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ tag body-content="empty" pageEncoding="UTF-8" %>
+
 
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
@@ -14,11 +16,10 @@
 
         <div class="collapse navbar-collapse" id="navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="/recettes">Toutes les recettes</a></li>
-                <li><a href="/recette-du-moment">Recette du moment</a></li>
+                <li><a href="/admin/recettes">Recettes</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/admin">Admin</a></li>
+                <li><a href="/logout">Déconnexion</a></li>
             </ul>
         </div>
     </div>
