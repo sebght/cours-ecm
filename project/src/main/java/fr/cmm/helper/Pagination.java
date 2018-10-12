@@ -8,9 +8,9 @@ public class Pagination {
     // 1 based page index
     private int pageIndex;
 
-    private int pageSize;
+    private static int pageSize;
 
-    private long count;
+    private static long count;
 
     public int getPreviousPageIndex() {
         return isFirstPage() ? pageIndex : pageIndex - 1;
@@ -28,7 +28,7 @@ public class Pagination {
         return pageIndex * pageSize >= count;
     }
 
-    public int getPageCount() {
+    public static int getPageCount() {
         return (int) count / pageSize;
     }
 
