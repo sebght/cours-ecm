@@ -52,6 +52,12 @@ public class IndexControllerTest {
     }
 
     @Test
+    public void recette_not_found() throws Exception {
+        mockMvc.perform(get("/recette/56375619d4c603aa4eb412dd"))
+                .andExpect(status().isNotFound());
+    }
+
+    @Test
     public void recette() throws Exception {
         String id = "56375619d4c603aa4eb412af";
 

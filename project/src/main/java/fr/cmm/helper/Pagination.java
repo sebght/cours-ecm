@@ -14,6 +14,8 @@ public class Pagination {
 
     private long count;
 
+    public static final int PAGINATION_SIZE = 10;
+
     public int getPreviousPageIndex() {
         return isFirstPage() ? pageIndex : pageIndex - 1;
     }
