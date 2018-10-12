@@ -8,9 +8,9 @@ public class Pagination {
     // 1 based page index
     private int pageIndex;
 
-    private static int pageSize;
+    private int pageSize;
 
-    private static long count;
+    private long count;
 
     public int getPreviousPageIndex() {
         return isFirstPage() ? pageIndex : pageIndex - 1;
@@ -28,8 +28,11 @@ public class Pagination {
         return pageIndex * pageSize >= count;
     }
 
-    public static int getPageCount() {
-        return (int) count / pageSize;
+    public int getPageCount() {
+        if (count%pageSize==0 && count!=0){
+            return (int) count / pageSize;
+        }
+        else return (int) count / pageSize + 1;
     }
 
     public List<Integer> getPages() {

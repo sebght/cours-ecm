@@ -10,8 +10,8 @@ public class PaginationTest {
         pagination.setPageSize(20);
         assertEquals(6, pagination.getPageCount());
         pagination.setPageSize(25);
-        assertEquals(4, pagination.getPageCount());
+        assertEquals(5, pagination.getPageCount());
         pagination.setCount(0);
-        assertEquals(0, pagination.getPageCount());
+        assertEquals(1, pagination.getPageCount());
     }
 }
