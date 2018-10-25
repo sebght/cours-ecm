@@ -101,6 +101,8 @@
                             <div class="form-group ${status.error ? 'has-error' : ''}">
                                 <label class="control-label">Ingredients ${fn:escapeXml(status.errorMessage)}</label>
                                 <button type="button" class="btn btn-default btn-xs" data-role="addIngredient"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+                                <button type="button" class="btn btn-default btn-xs" data-role="addSel"><span class="glyphicon glyphicon-plus" aria-hidden="true">Sel</span></button>
+                                <button type="button" class="btn btn-default btn-xs" data-role="addPoivre"><span class="glyphicon glyphicon-plus" aria-hidden="true">Poivre</span></button>
                                 <div id="ingredients">
                                     <c:forEach var="ingredient" varStatus="loopStatus" items="${command.ingredients}">
                                         <jsp:include page="ingredient-form-row.jsp">

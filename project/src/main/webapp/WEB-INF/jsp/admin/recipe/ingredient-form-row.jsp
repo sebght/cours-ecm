@@ -4,7 +4,7 @@
 
 <div class="row">
     <div class="col-xs-6">
-        <input type="text" class="form-control" placeholder="Nom" name="ingredients[${not empty ingredientIndex ? ingredientIndex : param.ingredientIndex}].name" value="${fn:escapeXml(param.ingredientName)}" />
+        <input type="text" class="form-control" placeholder="Nom" name="ingredients[${not empty ingredientIndex ? ingredientIndex : param.ingredientIndex}].name" value="${not empty ingredientName?ingredientName:fn:escapeXml(param.ingredientName)}" />
     </div>
     <div class="col-xs-2">
         <input type="text" class="form-control" placeholder="Quantité" name="ingredients[${not empty ingredientIndex ? ingredientIndex : param.ingredientIndex}].quantity" value="${fn:escapeXml(param.ingredientQuantity)}" />
