@@ -48,8 +48,25 @@
                 </li>
             </c:forEach>
         </ul>
-
-        ${pagination.pages}
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    <li>
+                        <a href="/recettes?pageIndex=${pagination.previousPageIndex}" aria-label="Précédente">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li><a href="/recettes?pageIndex=${pagination.pageIndex-2}">${pagination.pageIndex-3}</a></li>
+                    <li><a href="/recettes?pageIndex=${pagination.pageIndex-1}">${pagination.pageIndex-2}</a></li>
+                    <li class="active"><a href="/recettes?pageIndex=${pagination.pageIndex}"><span>${pagination.pageIndex-1}<span class="sr-only">(current)</span></span></a></li>
+                    <li><a href="/recettes?pageIndex=${pagination.pageIndex+1}">${pagination.pageIndex}</a></li>
+                    <li><a href="/recettes?pageIndex=${pagination.pageIndex+2}">${pagination.pageIndex+1}</a></li>
+                    <li>
+                        <a href="/recettes?pageIndex=${pagination.nextPageIndex}" aria-label="Suivant">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
     </div>
 
     <fragments:footer />
