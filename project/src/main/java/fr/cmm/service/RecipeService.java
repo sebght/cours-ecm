@@ -35,6 +35,23 @@ public class RecipeService {
                 .as(Recipe.class);
     }
 
+    public Iterable<Recipe> findByQueryByLatest(PageQuery query) {
+        String mongoQuery = "{}";
+        String[] params = {};
+
+        if (query.getTag() != null && !"".equals(query.getTag())) {
+            mongoQuery = "{tags: #}";
+            params = new String[] {query.getTag()};
+        }
+
+        return recipeCollection
+                .find(mongoQuery, (Object[]) params)
+                .sort("{date:-1}") //il faut rajouter le tri par dates descendantes
+                .skip(query.skip())
+                .limit(query.getSize())
+                .as(Recipe.class);
+    }
+
     public long countByQuery(PageQuery query) {
         String mongoQuery = "{}";
         String[] params = {};
